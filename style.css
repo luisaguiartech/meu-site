@@ -6,26 +6,23 @@
 }
 
 /* --- Cores base --- */
-
-/* Modo claro (padrão) */
 :root {
   --bg-body: #f9f9f9;
   --bg-container: white;
   --text-primary: #2c3e50;
   --text-secondary: #34495e;
-  --accent: #FF4500; /* 🔥 Laranja 80s */
+  --accent: #FF4500; /* Laranja 80s */
   --border: #eee;
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.15);
 }
 
-/* Modo escuro */
 .dark-mode {
   --bg-body: #121212;
   --bg-container: #1e1e1e;
   --text-primary: #f0f0f0;
   --text-secondary: #d0d0d0;
-  --accent: #ADFF2F; /* 💚 Verde-limão neon 80s */
+  --accent: #ADFF2F; /* Verde-limão 80s */
   --border: #333;
   --shadow: rgba(0, 0, 0, 0.3);
   --shadow-hover: rgba(0, 0, 0, 0.4);
@@ -41,7 +38,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* Container centralizado — Grid Center */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -54,7 +50,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Botão de alternância de tema — estilo retrô 80s */
+/* Botão de tema retrô */
 #theme-toggle {
   position: absolute;
   top: 15px;
@@ -102,12 +98,15 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Parágrafos e listas */
+/* Listas e parágrafos */
 p, ul {
   margin-bottom: 15px;
 }
 ul {
   padding-left: 20px;
+}
+small {
+  color: var(--text-secondary);
 }
 
 /* GIF animado */
@@ -121,7 +120,7 @@ ul {
   box-shadow: 0 2px 8px var(--shadow);
 }
 
-/* CELULAR */
+/* Celular */
 @media (max-width: 600px) {
   .container {
     padding: 20px;

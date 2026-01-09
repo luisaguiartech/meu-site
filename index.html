@@ -49,7 +49,6 @@
     const toggleButton = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Verifica preferência salva ou do sistema
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -60,7 +59,6 @@
       toggleButton.textContent = '🌙';
     }
 
-    // Alterna ao clicar
     toggleButton.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       const isDark = body.classList.contains('dark-mode');
