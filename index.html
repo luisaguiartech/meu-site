@@ -4,80 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luis Aguiar — Portfólio</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #2c3e50;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      line-height: 1.6;
-      text-align: center;
-    }
-    h1 {
-      color: #FF4500;
-      margin: 20px 0;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-    }
-    h2 {
-      margin: 25px 0 10px;
-      color: #34495e;
-    }
-    a {
-      color: #FF4500;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .tech-gif {
-      width: 200px;
-      height: auto;
-      margin: 20px auto;
-      display: block;
-      border: 2px solid #FF4500;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    small {
-      color: #7f8c8d;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- GIF com fallback -->
-  <img src="luisaguiartechelogosprogramas.gif" 
-       alt="Luis Aguiar — Desenvolvedor em formação"
-       class="tech-gif"
-       onerror="this.style.display='none'">
+  <div class="container">
+    <!-- Botão de alternância de tema -->
+    <button id="theme-toggle" aria-label="Alternar tema claro/escuro">
+      🌙
+    </button>
 
-  <h1>Luis Aguiar</h1>
-  <p><strong>Desenvolvedor em formação</strong></p>
-  <p>Exploro tecnologia com foco em HTML, CSS, Git, Java, SQL e Python.<br>
-     Atualmente aprofundando meus estudos em desenvolvimento web.</p>
+    <!-- GIF com sua foto + tecnologias -->
+    <img src="luisaguiartechelogosprogramas.gif" 
+         alt="Luis Aguiar — Desenvolvedor em formação com HTML5, CSS3, Java, SQL, Python, Git e GitHub"
+         class="tech-gif">
 
-  <h2>Projetos</h2>
-  <ul style="list-style: none; padding: 0;">
-    <li>
-      🌐 <a href="https://todo-list-python-1.onrender.com" target="_blank" rel="noopener">Lista de Tarefas (Online)</a><br>
-      💻 <a href="https://github.com/luisaguiartech/todo-list-python" target="_blank" rel="noopener">Código no GitHub</a><br>
-      <small>Python • Flask • HTML • CSS</small>
-    </li>
-  </ul>
+    <h1>Luis Aguiar</h1>
+    <p><strong>Desenvolvedor em formação</strong></p>
+    <p>Exploro tecnologia com foco em HTML, CSS, Git, Java, SQL e Python.  
+       Atualmente aprofundando meus estudos em desenvolvimento web e lógica de programação.</p>
 
-  <h2>Habilidades</h2>
-  <p><strong>Linguagens:</strong> HTML5 • CSS3 • Java • SQL • Python</p>
-  <p><strong>Ferramentas:</strong> Git • GitHub</p>
-  <p><strong>Soft Skills:</strong> Resolução de Problemas • Aprendizado Contínuo</p>
+    <h2>Projetos</h2>
+    <ul>
+      <li>
+        🌐 <a href="https://todo-list-python-1.onrender.com" target="_blank">Lista de Tarefas (Online)</a> — 
+        💻 <a href="https://github.com/luisaguiartech/todo-list-python" target="_blank">GitHub</a>
+        <br>
+        <small>Python, Flask, HTML, CSS</small>
+      </li>
+    </ul>
 
-  <h2>Contato</h2>
-  <p>Email: <a href="mailto:luisaguiartech@gmail.com">luisaguiartech@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/luis-aguiar-378b64164/" target="_blank" rel="noopener">Luis Aguiar</a></p>
-  <p>GitHub: <a href="https://github.com/luisaguiartech" target="_blank" rel="noopener">luisaguiartech</a></p>
+    <h2>Habilidades</h2>
+    <p><strong>Linguagens:</strong> HTML5 • CSS3 • Java • SQL • Python</p>
+    <p><strong>Ferramentas:</strong> Git • GitHub</p>
+    <p><strong>Soft Skills:</strong> Resolução de Problemas • Aprendizado Contínuo</p>
+
+    <h2>Contato</h2>
+    <p>Email: <a href="mailto:luisaguiartech@gmail.com">luisaguiartech@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/luis-aguiar-378b64164/" target="_blank">Luis Aguiar</a></p>
+    <p>GitHub: <a href="https://github.com/luisaguiartech" target="_blank">luisaguiartech</a></p>
+  </div>
+
+  <!-- Script para alternar tema -->
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    } else {
+      toggleButton.textContent = '🌙';
+    }
+
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDark = body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      toggleButton.textContent = isDark ? '☀️' : '🌙';
+    });
+  </script>
 </body>
 </html>
